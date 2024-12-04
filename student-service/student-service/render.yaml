@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: student-service
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/student-service-0.0.1-SNAPSHOT.jar
+    disk: 1
+    branches:
+      - main
+    autoscale: true
+    dockerfilePath: Dockerfile
